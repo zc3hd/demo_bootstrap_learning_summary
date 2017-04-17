@@ -1,0 +1,751 @@
+<!doctype HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>详情页</title>
+<style>
+
+body {
+font-family: Tahoma;
+font-size: 10pt;
+/*line-height: 170%;*/
+padding-top: 10px;
+margin:0px;
+}
+/*------------------------------------------------------------侧边导航*/
+nav {
+background: gray;
+color: white;
+text-decoration: none;
+overflow-x: hidden;
+overflow-y: auto;
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+width: 200px;
+}
+nav a {
+	text-decoration: none;
+	color: white;
+}
+/*-------------------------------------------------------------标头*/
+@keyframes move {
+	0% {
+		text-shadow: 5px 0px 3px rgba(0,0,0,0.5);
+		transform: perspective(2000px) rotateY(0deg);
+	}
+	25% {
+		text-shadow: 20px 0px 5px rgba(0,0,0,.3);
+		transform: perspective(2000px) rotateY(40deg);
+	}
+	50% {
+		text-shadow: 5px 0px 5px rgba(0,0,0,.5);
+		transform: perspective(2000px) rotateY(0deg);
+	}
+	75% {
+		text-shadow: -20px 0px 5px rgba(0,0,0,.3);
+		transform: perspective(2000px) rotateY(-40deg);
+	}
+	100% {
+		text-shadow: 5px 0px 3px rgba(0,0,0,0.5);
+		transform: perspective(2000px) rotateY(0deg);
+	}
+}
+
+@keyframes moveX {
+	0% {
+		text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+		transform: perspective(2000px) rotateX(0deg);
+	}
+	25% {
+		text-shadow: 0px 10px 5px rgba(0,0,0,.3);
+		transform: perspective(2000px) rotateX(30deg);
+	}
+	50% {
+		text-shadow: 0px 0px 5px rgba(0,0,0,.5);
+		transform: perspective(2000px) rotateX(0deg);
+	}
+	75% {
+		text-shadow: 0px 10px 5px rgba(0,0,0,.3);
+		transform: perspective(2000px) rotateX(-30deg);
+	}
+	100% {
+		text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+		transform: perspective(2000px) rotateX(0deg);
+	}
+}
+
+
+header {
+padding-top: 10px;
+padding-left: 220px;
+font-size: 18px;
+position: absolute;
+/*margin-bottom:30px;*/
+text-shadow: 5px 0px 3px rgba(0,0,0,.3);
+color: black;
+}
+
+header h1 {
+	
+	margin:0px;
+	padding: 0px;
+	animation: move 6s forwards infinite;
+}
+/*----------------------------------------------------------主题*/
+article {
+margin-top: 80px;
+padding-left: 220px;
+}
+
+@keyframes imgMoveOver {
+	0% {
+		/*text-shadow: 5px 5px 3px rgba(0,0,0,0.5);*/
+		transform: scale(1) ;
+	}
+	100% {
+		/*text-shadow: 5px 5px 3px rgba(0,0,0,0.5);*/
+		/*transform: perspective(2000px) rotateY(30deg);*/
+		transform: scale(1.01) translateY(-2%);
+	}
+}
+
+@keyframes imgMoveOut {
+	0% {
+		/*text-shadow: 5px 5px 3px rgba(0,0,0,0.5);*/
+		
+		transform: scale(1.1) translateY(-5%);
+	}
+	100% {
+		/*text-shadow: 5px 5px 3px rgba(0,0,0,0.5);*/
+		/*transform: perspective(2000px) rotateY(30deg);*/
+		transform: scale(1) ;
+	}
+}
+
+img {
+	/*position: relative;*/
+	width: 900px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: Orange;
+	transform-origin:left top;
+}
+img:hover {
+	animation: imgMoveOver 0.5s forwards;
+}
+/*段落*/
+h3,h4{
+	/*background-color: rgba(0,0,0,.3);*/
+	background-image: linear-gradient(to right, rgba(0,0,0,1) 30%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 65%, rgba(0,0,0,0.2) 75%, white 100%);
+/*	width: 500px;*/
+	color: white;
+	font-size: 22px;
+	padding-left: 10px;
+}
+h4{
+	width: 50%;
+	font-size: 18px;
+	margin-left: 5px;
+}
+pre {
+	background-color: black;
+}
+pre code {
+	color: yellow;
+	font-size: 16px;
+	font-weight: 500;
+}
+/*---------------------------------------------------------底部*/
+footer {
+padding-top: 10px;
+padding-left: 220px;
+padding-bottom: 10px;
+background-color: black;
+color: white;
+}
+footer h3 {
+	color: white;
+	background-color:transparent;
+	background-image: linear-gradient(to right, black 0%,  black 100%);
+}
+</style>
+</head>
+<body>
+
+<nav>
+<ul>
+<li class="level3"><a href="#0.1">1.基础：</a></li><li class="level3"><a href="#0.2">2入口模板：</a></li><li class="level3"><a href="#0.3">3.视口：</a></li><li class="level3"><a href="#0.4">4.bootstrap文件：</a></li><li class="level3"><a href="#0.5">5.样式设置：</a></li><li class="level4"><a href="#0.5.1">5.1公共样式与选择器：</a></li><li class="level4"><a href="#0.5.2">5.2 字体设置：</a></li><li class="level4"><a href="#0.5.3">5.3 栅格系统：</a></li><li class="level4"><a href="#0.5.4">5.4 伪类设置：</a></li><li class="level4"><a href="#0.5.5">5.5 空白字符：</a></li><li class="level4"><a href="#0.5.6">5.6 菜单栏横向滚动：</a></li><li class="level4"><a href="#0.5.7">5.7 em &amp; rem：</a></li><li class="level4"><a href="#0.5.8">5.8 左浮右浮动：</a></li><li class="level3"><a href="#0.6">6.自定义按钮样式：BBG</a></li><li class="level3"><a href="#0.7">7.轮播图：</a></li><li class="level4"><a href="#0.7.1">7.1 控制目标：</a></li><li class="level4"><a href="#0.7.2">7.2 图片响应：</a></li><li class="level4"><a href="#0.7.3">7.3 轮播图手机端的左右滑动</a></li><li class="level4"><a href="#0.7.4">7.4 JS组件与CSS组件的区别</a></li><li class="level3"><a href="#0.8">8.吸顶设置：affix</a></li><li class="level3"><a href="#0.9">9.模态框</a></li><li class="level3"><a href="#0.10">10.table栏</a></li><li class="level3"><a href="#0.11">11.预处理得的less</a></li><li class="level3"><a href="#0.12">11.谷歌的微调工具</a></li><li class="level3"><a href="#0.13">12.自定义bootstrap</a></li><li class="level3"><a href="#0.14">开源协议</a></li></ul>
+
+</nav>
+
+<header>
+<h1 id="-bootstrap-learning-summary">【❤】bootstrap learning summary</h1>
+
+</header>
+
+<article>
+<h3 id="0.1">1.基础：</h3>
+<ul>
+<li><a href="http://v3.bootcss.com/css/">官方API</a>先扣一遍;</li>
+</ul>
+<h3 id="0.2">2入口模板：</h3>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;
+    &lt;title&gt;Bootstrap 101 Template&lt;/title&gt;
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link href=&quot;css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!-- WARNING: Respond.js doesn&#39;t work if you view the page via file:// --&gt;
+    &lt;!--[if lt IE 9]&gt;
+      &lt;script src=&quot;https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script src=&quot;https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;你好，世界！&lt;/h1&gt;
+
+    &lt;!-- jQuery (necessary for Bootstrap&#39;s JavaScript plugins) --&gt;
+    &lt;script src=&quot;https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;
+    &lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>meta设置选用最新IE浏览器，设置适配浏览器的屏幕宽度，初始缩放比：</li>
+</ul>
+<p><img src="./webapp/readme_img/003.jpg" alt=""></p>
+<ul>
+<li>IE浏览器的各种版本测试模式：</li>
+</ul>
+<p><img src="./webapp/readme_img/002.jpg" alt=""></p>
+<ul>
+<li>条件注释：</li>
+</ul>
+<p><img src="./webapp/readme_img/015.jpg" alt=""></p>
+<h3 id="0.3">3.视口：</h3>
+<ul>
+<li>说明：</li>
+</ul>
+<p><img src="./webapp/readme_img/006.jpg" alt=""></p>
+<ul>
+<li><p>标签：好像所有的dom都是100%内置的，需要用栅格系统进行划分列</p>
+<pre><code>&lt;header id=&quot;header&quot;&gt;
+  &lt;div class=&quot;topbar visible-md visible-lg&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-2 text-center&quot;&gt;
+          &lt;a href=&quot;#&quot; class=&quot;mobile-link&quot;&gt;
+            &lt;i class=&quot;icon-mobilephone&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;手机微金所&lt;/span&gt;
+            &lt;i class=&quot;glyphicon glyphicon-chevron-down&quot;&gt;&lt;/i&gt;
+            &lt;img src=&quot;img/c_06.jpg&quot; height=&quot;136&quot; width=&quot;120&quot; alt=&quot;扫一扫&quot;&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;nav class=&quot;navbar navbar-itcast navbar-static-top&quot;&gt;
+
+  &lt;/nav&gt;
+&lt;/header&gt;
+</code></pre></li>
+<li><p>视口设置为设备的宽度。里面的页面设置为宽度为100%（body的宽度），然后响应设备的宽度进行变化，col-md-n 这个分列有相对定位。body就是那个容器，页面内设置宽度为100%，页面相应设备的宽度设置body的宽度。</p>
+</li>
+</ul>
+<p><img src="./webapp/readme_img/007.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/012.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/016.jpg" alt=""></p>
+<ul>
+<li>布局容器：版心的设置：分布的栅格系统没有设置有几列的话就自动百分百</li>
+</ul>
+<p><img src="./webapp/readme_img/017.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/019.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/020.jpg" alt=""></p>
+<ul>
+<li>栅格参数：</li>
+</ul>
+<p><img src="./webapp/readme_img/021.jpg" alt=""></p>
+<ul>
+<li>媒体查询：条件是最小宽度的话，写的规则是从小到大的抒写</li>
+</ul>
+<p><img src="./webapp/readme_img/018.jpg" alt=""></p>
+<h3 id="0.4">4.bootstrap文件：</h3>
+<ul>
+<li>css高亮主题文件：</li>
+</ul>
+<p><img src="./webapp/readme_img/013.jpg" alt=""></p>
+<ul>
+<li>可用的类：</li>
+</ul>
+<p><img src="./webapp/readme_img/023.jpg" alt=""></p>
+<ul>
+<li>可作为按钮使用的标签</li>
+</ul>
+<p><img src="./webapp/readme_img/032.jpg" alt=""></p>
+<h3 id="0.5">5.样式设置：</h3>
+<h4 id="0.5.1">5.1公共样式与选择器：</h4>
+<ul>
+<li>body：设置字体样式</li>
+</ul>
+<pre><code>body {
+  font-family: &quot;Helvetica Neue&quot;, Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+</code></pre><ul>
+<li>margin ：0 auto;居中</li>
+<li>排序选择器：</li>
+</ul>
+<p><img src="./webapp/readme_img/026.jpg" alt=""></p>
+<ul>
+<li>兄弟选择器：</li>
+</ul>
+<p><img src="./webapp/readme_img/030.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/031.jpg" alt=""></p>
+<ul>
+<li>box-size:border-box。盒子的宽度就是向内压缩的。border，padding，width。三个值加起来就是总宽。</li>
+</ul>
+<h4 id="0.5.2">5.2 字体设置：</h4>
+<ul>
+<li>字体设置：设置字的内容还是内容设置：</li>
+</ul>
+<pre><code>@font-face {
+  font-family: &#39;itcast&#39;;
+  src: url(&#39;../font/MiFie-Web-Font.eot&#39;) format(&#39;embedded-opentype&#39;), 
+  url(&#39;../font/MiFie-Web-Font.svg&#39;) format(&#39;svg&#39;), 
+  url(&#39;../font/MiFie-Web-Font.ttf&#39;) format(&#39;truetype&#39;), 
+  url(&#39;../font/MiFie-Web-Font.woff&#39;) format(&#39;woff&#39;);
+}
+
+&lt;!-- 通配选择器  前面是以&quot;icon-&quot;开头 然后包含&quot; icon-&quot;的类名 --&gt;
+[class^=&quot;icon-&quot;],
+[class*=&quot; icon-&quot;] {
+  font-family: itcast;
+  font-style: normal;
+}
+</code></pre><p><img src="./webapp/readme_img/029.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/037.jpg" alt=""></p>
+<ul>
+<li>档字体文件：</li>
+</ul>
+<p><img src="./webapp/readme_img/062.jpg" alt=""></p>
+<h4 id="0.5.3">5.3 栅格系统：</h4>
+<ul>
+<li>设置好栅格系统，设置高度先撑起来：</li>
+</ul>
+<p><img src="./webapp/readme_img/028.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/025.jpg" alt=""></p>
+<ul>
+<li>a标签里面放入其他的标签：</li>
+</ul>
+<p><img src="./webapp/readme_img/036.jpg" alt=""></p>
+<ul>
+<li>左边固定宽度，右边自适应屏幕<ul>
+<li>左边设置浮动或者定位，设置固定宽度，下面的元素会上来。</li>
+<li>下面设置margin-left = 固定宽度，就形成自适应了。</li>
+</ul>
+</li>
+</ul>
+<p><img src="./webapp/readme_img/059.jpg" alt=""></p>
+<ul>
+<li>列偏移：<ul>
+<li>col-md-offset-2 列偏移还是在12格内</li>
+<li>sublime 快速定位代码位置 Ctrl+R</li>
+</ul>
+</li>
+</ul>
+<h4 id="0.5.4">5.4 伪类设置：</h4>
+<ul>
+<li>::before，::after 伪类设置前后的两个公用的地方</li>
+</ul>
+<pre><code class="lang-css">.panel-czbk &gt; .panel-heading::before,
+.panel-czbk &gt; .panel-heading::after {
+  content: &#39; &#39;;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  position: absolute;
+}
+
+.panel-czbk &gt; .panel-heading::before {
+  top: -8px;
+  left: -8px;
+}
+
+.panel-czbk &gt; .panel-heading::after {
+  bottom: -8px;
+  left: -8px;
+  box-shadow: 0 2px 1px #ccc inset;/*内嵌样式*/
+}
+</code></pre>
+<h4 id="0.5.5">5.5 空白字符：</h4>
+<ul>
+<li>一个dom100%宽。子dom之间有个换行，就是空白字符，会占有像素，所以两个子dom百分比分父亲的100%，就分不来，所以第二个dom就会换行。</li>
+</ul>
+<pre><code class="lang-html">  &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;left&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;right&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+<ul>
+<li>css设置字体大小为0就可以了：</li>
+</ul>
+<pre><code class="lang-css">.container {
+      width: 1024px;
+      height: 2000px;
+      margin: 0 auto;
+      font-size: 0;
+    }
+</code></pre>
+<p><img src="./webapp/readme_img/065.jpg" alt=""></p>
+<h4 id="0.5.6">5.6 菜单栏横向滚动：</h4>
+<pre><code class="lang-js">  var $ulContainer = $(&#39;.nav-tabs&#39;);
+  // 获取所有子元素的宽度和
+  var width = 30; // 因为原本ul上有padding-left
+  // 遍历子元素
+  $ulContainer.children().each(function(index, element) {
+    width += element.clientWidth;
+  });
+  // 此时width等于所有LI的宽度总和
+  // 判断当前UL的宽度是否超出屏幕，如果超出就显示横向滚动条
+  if (width &gt; $(window).width()) {
+
+    $ulContainer
+      .css(&#39;width&#39;, width)
+      .parent().css(&#39;overflow-x&#39;, &#39;scroll&#39;);
+      // 这个样式竟然可以横向滚动。我去。
+  }
+</code></pre>
+<h4 id="0.5.7">5.7 em &amp; rem：</h4>
+<ul>
+<li>一个em,代码当前标签font-size的大小。</li>
+<li>rem （root-em）取HTML的font-size</li>
+<li>bootstrap 4.0全面使用rem</li>
+</ul>
+<h4 id="0.5.8">5.8 左浮右浮动：</h4>
+<p><img src="./webapp/readme_img/055.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/056.jpg" alt=""></p>
+<h3 id="0.6">6.自定义按钮样式：BBG</h3>
+<ul>
+<li>自己生产自己的按钮样式</li>
+</ul>
+<p><img src="./webapp/readme_img/033.jpg" alt=""></p>
+<ul>
+<li>或者找源码中的代码进行复制后自己修改：</li>
+</ul>
+<p><img src="./webapp/readme_img/034.jpg" alt=""></p>
+<ul>
+<li>修改默认样式，导航条首先要知道哪个是控制样式的最大的style复制。比如navbar-inverse。接着把我们的navbar-inverse改成我们需要的比如navbar-cc-nav。接着在浏览器直接改样式，在浏览器点击改完的文件，全选，复制到我们本地样式文件。无论改哪个样式，肯定改的是本地样式</li>
+</ul>
+<p><img src="./webapp/readme_img/039.jpg" alt=""></p>
+<h3 id="0.7">7.轮播图：</h3>
+<h4 id="0.7.1">7.1 控制目标：</h4>
+<pre><code class="lang-html">&lt;!-- 
+  以下容器就是整个轮播图组件的整体，
+  注意该盒子必须加上 class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot; 表示当前是一个轮播图
+  bootstrap.js会自动为当前元素添加图片轮播的特效
+--&gt;
+&lt;div id=&quot;轮播图的ID&quot; class=&quot;carousel slide&quot; data-ride=&quot;carousel&quot;&gt;
+  &lt;!-- ol标签是图片轮播的控制点 --&gt;
+  &lt;ol class=&quot;carousel-indicators&quot;&gt;
+    &lt;!-- 
+      每一个li就是一个单独的控制点
+        data-target属性就是指定当前控制点控制的是哪一个轮播图，其目的是如果界面上有多个轮播图，便于区分到底控制哪一个
+        data-slide-to属性是指当前的li元素绑定的是第几个轮播项
+      注意，默认必须给其中某个li加上active，展示的时候就是焦点项目
+    --&gt;
+    &lt;li data-target=&quot;#轮播图的ID&quot; data-slide-to=&quot;0&quot; class=&quot;active&quot;&gt;&lt;/li&gt;
+    &lt;li data-target=&quot;#轮播图的ID&quot; data-slide-to=&quot;1&quot;&gt;&lt;/li&gt;
+    &lt;!-- ...更多的 --&gt;
+  &lt;/ol&gt;
+  &lt;!-- 
+    .carousel-inner是所有轮播项的容器盒子，
+    注意role=&quot;listbox&quot;代表当前div是一个列表盒子，作用就是给当前div添加一个语义
+  --&gt;
+  &lt;div class=&quot;carousel-inner&quot; role=&quot;listbox&quot;&gt;
+    &lt;!-- 每一个.item就是单个轮播项目，注意默认要给第一个轮播项目加上active，表示为焦点 --&gt;
+    &lt;div class=&quot;item active&quot;&gt;
+      &lt;!-- 轮播项目中展示的图片 --&gt;
+      &lt;img src=&quot;example.jpg&quot; alt=&quot;示例图片&quot;&gt;
+      &lt;div class=&quot;carousel-caption&quot;&gt;
+        &lt;!-- 标题或说明性文字，如果不需要，直接删除当前div.carousel-caption --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;item&quot;&gt;
+      &lt;!-- ... --&gt;
+    &lt;/div&gt;
+    &lt;!-- ... --&gt;
+  &lt;/div&gt;
+  &lt;!-- 图片轮播上左右两个控制按钮，分别点击可以滚动到上一张和下一张 --&gt;
+  &lt;!-- 此处需要注意的是 该a链接的href属性必须指向需要控制的轮播图ID --&gt;
+  &lt;!-- 另外a链接中的data-slide=&quot;prev&quot;代表点击该链接会滚到上一张，如果设置为next的话则相反 --&gt;
+  &lt;a class=&quot;left carousel-control&quot; href=&quot;#轮播图的ID&quot; role=&quot;button&quot; data-slide=&quot;prev&quot;&gt;
+    &lt;span class=&quot;glyphicon glyphicon-chevron-left&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;上一张&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;a class=&quot;right carousel-control&quot; href=&quot;#轮播图的ID&quot; role=&quot;button&quot; data-slide=&quot;next&quot;&gt;
+    &lt;span class=&quot;glyphicon glyphicon-chevron-right&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;下一张&lt;/span&gt;
+  &lt;/a&gt;
+ &lt;/div&gt;
+</code></pre>
+<ul>
+<li>注意可以控制轮播图的点的target设置:</li>
+</ul>
+<p><img src="./webapp/readme_img/040.jpg" alt=""></p>
+<ul>
+<li>替换自己的target</li>
+</ul>
+<p><img src="./webapp/readme_img/041.jpg" alt=""></p>
+<ul>
+<li>在一个较小屏幕的展示一个超级宽的一个图片，想让图片居中显示，可以使用背景图：<ul>
+<li>1--div的背景图--先设置盒子的高度，在设置背景的居中情况，显示大小覆盖情况</li>
+<li>2--定位 p;a left:50%;margin-left:-width/2;</li>
+</ul>
+</li>
+</ul>
+<p><img src="./webapp/readme_img/048.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/049.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/051.jpg" alt=""></p>
+<h4 id="0.7.2">7.2 图片响应：</h4>
+<ul>
+<li>各个端需要正常显示图片</li>
+<li>移动端使用小图（体积）</li>
+<li>实现<ul>
+<li>先把两个图片的地址绑定到dom的属性上。</li>
+<li>JS 拿到屏幕的大小，判断是否是小屏幕，获取相应的标签，然后做相应的渲染</li>
+<li>css:最小大于768px,设置高度为设置的值。当满足为小屏幕时，设置为图片，图片的话就是宽度100%；高度也会跟着相应变化了。</li>
+</ul>
+</li>
+</ul>
+<p><img src="./webapp/readme_img/047.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/052.jpg" alt=""></p>
+<pre><code>#main_ad &gt; .carousel-inner &gt; .item {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+&lt;!-- 屏幕最小宽度大于768，就设置410高度 --&gt;
+@media (min-width: 768px) {
+  #main_ad &gt; .carousel-inner &gt; .item {
+    height: 410px;
+  }
+}
+&lt;!-- 设置好图片的样式。width100%，高度auto --&gt;
+#main_ad &gt; .carousel-inner &gt; .item &gt; img {
+  width: 100%;
+}
+</code></pre><pre><code>$(window).on(&#39;resize&#39;, resize).trigger(&#39;resize&#39;);
+事件委派执行。
+</code></pre><p><img src="./webapp/readme_img/053.jpg" alt=""></p>
+<h4 id="0.7.3">7.3 轮播图手机端的左右滑动</h4>
+<pre><code class="lang-js">  // 获取界面上的轮播图容器
+  var $carousels = $(&#39;.carousel&#39;);
+  var startX, endX;
+  var offset = 50;
+  // 注册滑动事件
+  $carousels.on(&#39;touchstart&#39;, function(e) {
+    // 手指触摸开始时记录一下手指所在的坐标X
+    startX = e.originalEvent.touches[0].clientX;
+    // console.log(startX);
+  });
+
+  $carousels.on(&#39;touchmove&#39;, function(e) {
+    // 变量重复赋值
+    endX = e.originalEvent.touches[0].clientX;
+    // console.log(endX);
+  });
+  $carousels.on(&#39;touchend&#39;, function(e) {
+    console.log(e);
+    // 结束触摸一瞬间记录最后的手指所在坐标X
+    // 比大小
+    // console.log(endX);
+    // 控制精度
+    // 获取每次运动的距离，当距离大于一定值时认为是有方向变化
+    var distance = Math.abs(startX - endX);
+    if (distance &gt; offset) {
+      // 有方向变化
+      // console.log(startX &gt; endX ? &#39;←&#39; : &#39;→&#39;);
+      // 2. 根据获得到的方向选择上一张或者下一张
+      //     - $(&#39;a&#39;).click();
+      //     - 原生的carousel方法实现 http://v3.bootcss.com/javascript/#carousel-methods
+      $(this).carousel(startX &gt; endX ? &#39;next&#39; : &#39;prev&#39;);
+    }
+  });
+</code></pre>
+<h4 id="0.7.4">7.4 JS组件与CSS组件的区别</h4>
+<ul>
+<li>就是有的dom上放置了一些属性，JS判断这些属性的是否有，然后决定他们的JS相应。这么说决定他业务的一般是一个属性值。</li>
+<li>所以皮肤就是css,业务才是JS，两者没有关系。</li>
+</ul>
+<p><img src="./webapp/readme_img/063.jpg" alt=""></p>
+<p><img src="./webapp/readme_img/064.jpg" alt=""></p>
+<h3 id="0.8">8.吸顶设置：affix</h3>
+<ul>
+<li>data-spy=&quot;affix&quot; data-offset-top=&quot;40&quot; 往下拉超过多少开始吸顶</li>
+<li>data-offset-bottom=&quot;200&quot;  </li>
+</ul>
+<h3 id="0.9">9.模态框</h3>
+<ul>
+<li>特别注意：把需要的东西放在modal-body里面</li>
+</ul>
+<p><img src="./webapp/readme_img/067.jpg" alt=""></p>
+<h3 id="0.10">10.table栏</h3>
+<ul>
+<li>目标控制：</li>
+</ul>
+<p><img src="./webapp/readme_img/057.jpg" alt=""></p>
+<ul>
+<li>渐入渐出：</li>
+</ul>
+<p><img src="./webapp/readme_img/058.jpg" alt=""></p>
+<h3 id="0.11">11.预处理得的less</h3>
+<ul>
+<li>和JS一样有去全局变量。全局函数（MixIn）</li>
+<li>有嵌套的语法</li>
+<li>使用：<ul>
+<li>//这个注释会转换完成后会被删除</li>
+<li>定义变量：@mianColor:#e45445;   不用写引号</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-css">@mianColor:#e45445;
+.container {
+  width: 1000px;
+  background-color: #ff0;
+  .row {
+    height: @width;
+    div {
+      border-left: 1px solid @mainColor;
+      &gt; a {  //直接子代这样加
+        color: red;
+        &amp;:hover { //注意这里伪类这样加
+          color: green;
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<ul>
+<li>MixIn--定义个代码段</li>
+</ul>
+<pre><code>// 定义一个代码段，（）里的内容是参数，参数中:后的内容是参数的默认值（没有传参数）
+.roundedCorners(@radius: 5px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+/* 定义的类应用到另个一个类中 */
+#header {
+  .roundedCorners();
+}
+#footer {
+  .roundedCorners(10px);
+}
+</code></pre><ul>
+<li>导入文件.less</li>
+</ul>
+<pre><code>@h: 100px;
+@import url(&#39;_p.less&#39;);
+
+//_p.less
+p {
+  line-height: @h;
+}
+</code></pre><ul>
+<li>内置函数<ul>
+<li>lighten：将一个颜色变亮<ul>
+<li>lighten(#000, 10%); // #1a1a1a</li>
+</ul>
+</li>
+<li>darken：将一个颜色变暗<ul>
+<li>darken(#000, 10%); // #e6e6e6</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="./webapp/readme_img/070.jpg" alt=""></p>
+<ul>
+<li>sunlime less高亮插件 less2css</li>
+</ul>
+<h3 id="0.12">11.谷歌的微调工具</h3>
+<ul>
+<li>添加到工作空间：</li>
+</ul>
+<p><img src="./webapp/readme_img/042.jpg" alt=""></p>
+<ul>
+<li>链接到映射：</li>
+</ul>
+<p><img src="./webapp/readme_img/043.jpg" alt=""></p>
+<ul>
+<li>微调开始：</li>
+</ul>
+<p><img src="./webapp/readme_img/044.jpg" alt=""></p>
+<ul>
+<li>在文件里设置好：</li>
+</ul>
+<p><img src="./webapp/readme_img/060.jpg" alt=""></p>
+<ul>
+<li>退出工作空间：</li>
+</ul>
+<p><img src="./webapp/readme_img/045.jpg" alt=""></p>
+<h3 id="0.13">12.自定义bootstrap</h3>
+<ul>
+<li>修改栅格系统：</li>
+</ul>
+<p><img src="./webapp/readme_img/071.jpg" alt=""></p>
+<ul>
+<li>定制：</li>
+</ul>
+<p><img src="./webapp/readme_img/072.jpg" alt=""></p>
+
+</article>
+<footer>
+<h3 id="0.14">开源协议</h3>
+<p>本程序基于MIT协议开源。</p>
+<pre><code>Copyright (c) cc.
+</code></pre>
+</footer>
+</body>
+
+<script>
+	var div = document.createElement("div"); 
+	var body = document.getElementsByTagName('body')[0];
+	console.log(body);
+div.id = 'back_index';	
+div.style.width = '200px';
+div.style.height = '200px';
+div.style.backgroundImage = "url(./back_index.png)";
+div.style.backgroundSize = 'cover';
+div.style.position = 'fixed';
+div.style.left = '0px';
+div.style.bottom = '20px';
+body.appendChild(div);
+document.write(div);
+div.onmouseover = function () {
+	/* body... */
+	div.style.animation = 'imgMoveOver 0.5s forwards';
+};
+div.onmouseout = function () {
+	/* body... */
+	div.style.animation = 'imgMoveOut 0.5s forwards';
+};
+div.onclick = function () {
+	/* body... */
+	window.location.href = "https://zc3hd.github.io/";
+};
+
+</script>
+
+</html>
