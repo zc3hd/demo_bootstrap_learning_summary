@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Document</title>
+  <link rel="stylesheet" href="../script/lib/bootstrap-3.3.6/dist/css/bootstrap.css">
+  <!--[if lt IE 9]>
+   <script src="../script/lib/html5shiv-3.7.3/dist/html5shiv.min.js"></script>
+   <script src="../script/lib/Respond-1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+  <!-- header -->
+  <header id="header">
+    <!-- 顶部通栏 -->
+    <div class="row visible-md visible-lg">
+      <div class="col-md-2 text-center">
+        <a href="#">
+          <span class="glyphicon glyphicon-user"></span>
+          <span>MY index</span>
+        </a>
+      </div>
+      <div class="col-md-8 text-center">公告：*********</div>
+      <div class="col-md-2 text-right">
+        <img src="../images/car_online.png" style="width: 20px;" alt="">
+        <span class="glyphicon glyphicon-triangle-bottom" data-toggle="modal" data-target="#myModal"></span>
+      </div>
+    </div>
+    <nav class="navbar navbar-cc-nav navbar-static-top" data-spy="affix" data-offset-top="40" data-offset-bottom="20">
+      <div class="container">
+        <!-- 汉堡 -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <i class="glyphicon glyphicon-home"></i>
+            <i class="glyphicon glyphicon-time"></i>
+          </a>
+        </div>
+        <!-- 导航 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- main -->
+  <section>
+    <div id="cc_carousel" class="bs-example" data-example-id="simple-carousel">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- 轮播图控制的小圆点 -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+        </ol>
+        <!-- 轮播图的图片 -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item" data-lg='../images/slide_01_2000x410.jpg' data-xm='../images/slide_01_640x340.jpg'></div>
+          <div class="item active" data-lg='../images/slide_02_2000x410.jpg' data-xm='../images/slide_02_640x340.jpg'></div>
+          <div class="item" data-lg='../images/slide_03_2000x410.jpg' data-xm='../images/slide_03_640x340.jpg'></div>
+        </div>
+        <!-- 左右按钮 -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- 广告 -->
+  <section id="tese">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <div class="media bg-primary">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="../images/001.jpg" alt="">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">标题党</h4> 这是内容asdasdasdasd
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="media bg-primary">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="../images/001.jpg" alt="">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">标题党</h4> 这是内容asdasdasdasd
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="media bg-primary">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="../images/001.jpg" alt="">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">标题党</h4> 这是内容asdasdasdasd
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="../images/001.jpg" alt="">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">标题党</h4> 这是内容asdasdasdasd
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="../images/001.jpg" alt="">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">标题党</h4> 这是内容asdasdasdasd
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object" src="../images/001.jpg" alt="">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">标题党</h4> 这是内容asdasdasdasd
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- 测试 -->
+  <section id="biaoshu">
+    <div class="container">
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+        <li class="pull-right"><a href="#">更多</a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="home">
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-cc">
+                <div class="panel-heading">
+                  <span data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">aaa</span>
+                </div>
+                <div class="panel-body">
+                  Panel content
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-cc">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                  Panel content
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-cc">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                  Panel content
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-cc">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                  Panel content
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-cc">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                  Panel content
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-cc">
+                <div class="panel-heading">Panel heading without title</div>
+                <div class="panel-body">
+                  Panel content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="profile">sdasdasdasd</div>
+        <div role="tabpanel" class="tab-pane fade" id="messages">asdasdasdasdsasdasd</div>
+        <div role="tabpanel" class="tab-pane fade" id="settings">.4545454..</div>
+      </div>
+    </div>
+  </section>
+  <!-- footer -->
+  <footer id="footer"></footer>
+  <!-- 模态框 -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Remember me
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Sign in</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../script/lib/jquery/jquery.js"></script>
+  <script src="../script/lib/bootstrap-3.3.6/dist/js/bootstrap.min.js"></script>
+  <script src="../script/module/index.js"></script>
+</body>
+
+</html>
